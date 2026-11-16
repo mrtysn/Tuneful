@@ -32,6 +32,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     // Status bar
     private var statusBarItem: NSStatusItem!
+    private var statusBarItemIsShown = true
+    private var statusBarItemWidth: CGFloat = 0
     private var statusBarMenu: NSMenu!
     
     // Managers
@@ -336,6 +338,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             button.subviews.forEach { $0.removeFromSuperview() }
             button.addSubview(menuBarView)
             button.frame = menuBarView.frame
+            self.statusBarItemWidth = menuBarView.frame.width
         }
         
         self.toggleMenuBarItemVisibility()
@@ -344,15 +347,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     @objc func toggleMenuBarItemVisibility() {
-        if Defaults[.hideMenuBarItemWhenNotPlaying] && (!playerManager.isRunning || !playerManager.isPlaying) {
-            self.statusBarItem.isVisible = false
-        } else {
-            self.statusBarItem.isVisible = true
-        }
+        let hide = Defaults[.hideMenuBarItemWhenNotPlaying] && (!playerManager.isRunning || !playerManager.isPlaying)
+        self.setStatusBarItemShown(!hide)
     }
     
     @objc func toggleMenuBarItemVisibilityFromShortcut() {
-        self.statusBarItem.isVisible = !self.statusBarItem.isVisible
+        self.setStatusBarItemShown(!self.statusBarItemIsShown)
+    }
+    
+    /// Hides the item by collapsing it to zero width. Setting `isVisible` to false would make
+    /// macOS forget the item's position, and it would return at the far left of the menu bar.
+    private func setStatusBarItemShown(_ shown: Bool) {
+        self.statusBarItemIsShown = shown
+        self.statusBarItem.length = shown ? self.statusBarItemWidth : 0
+        self.statusBarItem.button?.isHidden = !shown
     }
     
     @objc func menuBarPlaybackControls() {
