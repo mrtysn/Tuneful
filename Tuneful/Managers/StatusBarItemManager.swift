@@ -20,6 +20,8 @@ class StatusBarItemManager: ObservableObject {
         let image = self.getImage(track: track, playerAppIsRunning: playerAppIsRunning, isPlaying: isPlaying)
         let titleWidth = title.stringWidth(with: Constants.StatusBar.marqueeFont)
         
+        let scrolls = Defaults[.scrollingTrackInfo] && playerAppIsRunning && titleWidth > Defaults[.menuBarItemWidth]
+        
         var menuBarItemHeigth = 20.0
         var menuBarItemWidth = titleWidth == 0
             ? Constants.StatusBar.imageWidth
@@ -33,7 +35,9 @@ class StatusBarItemManager: ObservableObject {
                 image.frame(width: 18, height: 18)
             }
             
-            if titleWidth != 0 || !playerAppIsRunning {
+            if scrolls {
+                MarqueeText(text: title, width: Defaults[.menuBarItemWidth])
+            } else if titleWidth != 0 || !playerAppIsRunning {
                 Text(title)
                     .lineLimit(1)
                     .font(.system(size: 13, weight: .regular))

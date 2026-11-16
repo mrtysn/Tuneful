@@ -41,6 +41,7 @@
 		FE445FE42A977D0E001CA55A /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE445FE32A977D0E001CA55A /* Double+Extension.swift */; };
 		FE4808F12B51BA400077BDAA /* AboutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4808F02B51BA400077BDAA /* AboutSettingsView.swift */; };
 		FE4808F42B51C3870077BDAA /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4808F32B51C3870077BDAA /* GeneralSettingsView.swift */; };
+		FE4C92152B6143CC00FF79BE /* MarqueeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4C92142B6143CC00FF79BE /* MarqueeTextView.swift */; };
 		FE4AA05D2D214FFD00A1A480 /* LuminareModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4AA04F2D214FFD00A1A480 /* LuminareModalView.swift */; };
 		FE4AA05F2D214FFD00A1A480 /* LuminareValueAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4AA0432D214FFD00A1A480 /* LuminareValueAdjuster.swift */; };
 		FE4AA0602D214FFD00A1A480 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4AA0582D214FFD00A1A480 /* ScreenView.swift */; };
@@ -169,6 +170,7 @@
 		FE445FE32A977D0E001CA55A /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		FE4808F02B51BA400077BDAA /* AboutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingsView.swift; sourceTree = "<group>"; };
 		FE4808F32B51C3870077BDAA /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		FE4C92142B6143CC00FF79BE /* MarqueeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeTextView.swift; sourceTree = "<group>"; };
 		FE4AA0372D214FFD00A1A480 /* PopoverHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverHolder.swift; sourceTree = "<group>"; };
 		FE4AA0382D214FFD00A1A480 /* PopoverPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverPanel.swift; sourceTree = "<group>"; };
 		FE4AA03A2D214FFD00A1A480 /* DividedVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividedVStack.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				FE7955462CA2C7A2002026AA /* AudioSpectrumView.swift */,
+				FE4C92142B6143CC00FF79BE /* MarqueeTextView.swift */,
 			);
 			path = MenuBar;
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 				FE2AEE322A8FE08500E8D576 /* CustomSliderView.swift in Sources */,
 				FE08CE132CFC74E200F047CB /* SettingsWindow.swift in Sources */,
 				FE2554A22CA9CA93003DAB77 /* HoverButton.swift in Sources */,
+				FE4C92152B6143CC00FF79BE /* MarqueeTextView.swift in Sources */,
 				FE4808F12B51BA400077BDAA /* AboutSettingsView.swift in Sources */,
 				FEE486E92B5D677400AB712F /* MiniPlayerType.swift in Sources */,
 				FE7C5BDA2AC050E000D1C253 /* AlbumArtView.swift in Sources */,
