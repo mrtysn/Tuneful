@@ -66,7 +66,6 @@
 		FE4C92172B61459F00FF79BE /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4C92162B61459F00FF79BE /* String+Extension.swift */; };
 		FE5B3CA22AB0AC700038B6E4 /* FullPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B3CA12AB0AC700038B6E4 /* FullPopoverView.swift */; };
 		FE5B56E62D037EEF0077527C /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = FE5B56E52D037EEF0077527C /* Defaults */; };
-		FE5B56E82D037EEF0077527C /* DefaultsMacros in Frameworks */ = {isa = PBXBuildFile; productRef = FE5B56E72D037EEF0077527C /* DefaultsMacros */; };
 		FE5B56EC2D0386EC0077527C /* Defaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B56EA2D0386EC0077527C /* Defaults+Extensions.swift */; };
 		FE5B56F22D059B4F0077527C /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B56F12D059B350077527C /* BackgroundView.swift */; };
 		FE6BFCE72A72F37800D3321F /* Tuneful.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6BFCE62A72F37800D3321F /* Tuneful.swift */; };
@@ -256,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEFFE5502B4AA04B000887B5 /* Settings in Frameworks */,
-				FE5B56E82D037EEF0077527C /* DefaultsMacros in Frameworks */,
 				FEF0660F2B51910700A514F2 /* KeyboardShortcuts in Frameworks */,
 				FE3F67FE2AAD02D100CCE841 /* LaunchAtLogin in Frameworks */,
 				FEF53A6A2AEEAC0D00CE4981 /* ISSoundAdditions in Frameworks */,
@@ -632,7 +630,6 @@
 				FEFFE54F2B4AA04B000887B5 /* Settings */,
 				FEF0660E2B51910700A514F2 /* KeyboardShortcuts */,
 				FE5B56E52D037EEF0077527C /* Defaults */,
-				FE5B56E72D037EEF0077527C /* DefaultsMacros */,
 			);
 			productName = Tuneful;
 			productReference = FE6BFCE32A72F37800D3321F /* Tuneful.app */;
@@ -1076,11 +1073,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FE5B56E42D037EEF0077527C /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
-		};
-		FE5B56E72D037EEF0077527C /* DefaultsMacros */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FE5B56E42D037EEF0077527C /* XCRemoteSwiftPackageReference "Defaults" */;
-			productName = DefaultsMacros;
 		};
 		FEF0660E2B51910700A514F2 /* KeyboardShortcuts */ = {
 			isa = XCSwiftPackageProductDependency;
