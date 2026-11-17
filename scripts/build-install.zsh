@@ -8,7 +8,7 @@ Build, sign, install and relaunch Tuneful from this checkout.
 
   scripts/build-install.zsh [--no-launch] [--help]
 
-The signing identity is CODESIGN_IDENTITY (default "Local Dev Signing"): a stable
+The signing identity is CODESIGN_IDENTITY (default "Local Dev Signing"; "-" signs ad-hoc): a stable
 certificate keeps macOS's grants for the app across rebuilds, which an ad-hoc
 signature does not. INSTALL_DIR defaults to /Applications. Needs full Xcode.
 EOF
@@ -28,8 +28,11 @@ APP_NAME="Tuneful"
 CODESIGN_IDENTITY="${CODESIGN_IDENTITY:-Local Dev Signing}"
 INSTALL_DIR="${INSTALL_DIR:-/Applications}"
 
-if ! security find-identity -v -p codesigning | grep -qF "$CODESIGN_IDENTITY"; then
-  print -u2 "no codesigning identity '$CODESIGN_IDENTITY' in the keychain (security find-identity -v -p codesigning)"
+if [[ "$CODESIGN_IDENTITY" == - ]]; then
+  print -u2 "signing ad-hoc (CODESIGN_IDENTITY=-): macOS grants for the app will not survive a rebuild"
+elif ! security find-identity -v -p codesigning | grep -qF "$CODESIGN_IDENTITY"; then
+  print -u2 "no codesigning identity '$CODESIGN_IDENTITY' in the keychain (security find-identity -v -p codesigning);"
+  print -u2 "create one (see hiddenbar-mirror's scripts/config.local.sh.example) or build ad-hoc with CODESIGN_IDENTITY=-"
   exit 1
 fi
 
