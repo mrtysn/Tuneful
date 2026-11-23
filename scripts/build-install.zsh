@@ -57,9 +57,13 @@ xcodebuild \
   CODE_SIGN_STYLE=Manual \
   CODE_SIGN_IDENTITY="$CODESIGN_IDENTITY" \
   build \
-  | grep -E "error:|\*\* BUILD" || true
+  | grep -E "error:|\*\* BUILD"
+# A failed build still leaves a partial .app (an empty Contents/MacOS), so the check below alone
+# would install it: refuse on xcodebuild's own status, and on a bundle with no executable.
+(( pipestatus[1] == 0 )) || { print -u2 "xcodebuild failed; nothing installed"; exit 1; }
 
 [[ -d "$BUILT_APP" ]] || { print -u2 "build produced no app at $BUILT_APP"; exit 1; }
+[[ -x "$BUILT_APP/Contents/MacOS/$APP_NAME" ]] || { print -u2 "built app has no executable at $BUILT_APP/Contents/MacOS/$APP_NAME; nothing installed"; exit 1; }
 
 if pgrep -f "$INSTALLED_APP/Contents/" >/dev/null 2>&1; then
   osascript -e "quit app \"$APP_NAME\"" 2>/dev/null || true
